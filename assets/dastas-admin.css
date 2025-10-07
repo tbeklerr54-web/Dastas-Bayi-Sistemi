@@ -1,0 +1,493 @@
+/* Dastaş Bayi Admin CSS - Clean Modern Design */
+
+/* Admin Dashboard Analytics */
+.admin-dashboard-analytics {
+    background: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    padding: 24px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.admin-dashboard-analytics h2 {
+    margin: 0 0 20px 0;
+    color: #111827;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-dashboard-analytics h2 i {
+    color: #2563eb;
+    font-size: 20px;
+}
+
+.admin-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.admin-analytics-card {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.admin-analytics-card:hover {
+    transform: translateY(-2px);
+}
+
+.admin-analytics-card:nth-child(2) {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.admin-analytics-card:nth-child(3) {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.admin-analytics-card:nth-child(4) {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+.admin-analytics-card:nth-child(5) {
+    background: linear-gradient(135deg, #7c3aed 0%, #6b21a8 100%);
+}
+
+.admin-analytics-card:nth-child(6) {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+}
+
+.admin-analytics-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.admin-analytics-card .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.admin-analytics-card .card-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+.admin-analytics-card .card-content {
+    flex: 1;
+}
+
+.admin-analytics-card .card-content h4 {
+    margin: 0 0 6px 0;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-analytics-card .card-number {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.admin-analytics-card .card-text {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-analytics-card small {
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Bayi Listesi ve Genel Stil */
+.dastas-admin-wrapper {
+    margin-top: 20px;
+}
+
+.bayi-stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 18px 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    flex: 1;
+    min-width: 140px;
+}
+
+.stat-box:nth-child(2) {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.stat-box:nth-child(3) {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.bayi-table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.status-active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-badge.status-inactive {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.no-items {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+.no-items p {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #374151;
+}
+
+/* Form Stilleri */
+.dastas-admin-form {
+    max-width: 600px;
+}
+
+.dastas-admin-form .form-table th {
+    width: 150px;
+    padding-left: 0;
+    font-weight: 600;
+    color: #374151;
+}
+
+.dastas-admin-form .form-table td {
+    padding-left: 12px;
+}
+
+.dastas-admin-form .regular-text {
+    width: 300px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.dastas-admin-form input.error {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 1px #dc2626;
+}
+
+.dastas-admin-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px #2563eb;
+    outline: none;
+}
+
+/* İstatistik Kutuları */
+.dastas-admin-stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.dastas-stat-box {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    flex: 1;
+}
+
+.dastas-stat-box h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.dastas-stat-box p {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Tablo Stilleri */
+.dastas-bayi-table {
+    margin-top: 20px;
+}
+
+.dastas-bayi-table .column-actions {
+    width: 120px;
+}
+
+.dastas-bayi-table .button {
+    margin-right: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.dastas-bayi-table code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #2563eb;
+    font-size: 11px;
+}
+
+.dastas-bayi-table th {
+    position: relative;
+    font-weight: 600;
+    color: #374151;
+}
+
+.dastas-bayi-table th:hover {
+    background-color: #f9fafb;
+}
+
+/* Mesaj Kutuları */
+.dastas-success {
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+.dastas-error {
+    background: #fecaca;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+/* WordPress Admin Tablo Stilleri */
+.wp-list-table.dastas-bayi-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.wp-list-table.dastas-bayi-table .manage-column {
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.wp-list-table.dastas-bayi-table td {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* Buton Stilleri */
+.button.delete-bayi {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: white;
+}
+
+.button.delete-bayi:hover {
+    background: #b91c1c;
+    border-color: #b91c1c;
+    color: white;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .admin-analytics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+    }
+    
+    .admin-analytics-card {
+        padding: 18px;
+        min-height: 100px;
+    }
+    
+    .admin-analytics-card .card-number {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-analytics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+    }
+    
+    .admin-analytics-card {
+        padding: 16px;
+        min-height: 90px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .admin-analytics-card .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .admin-analytics-card .card-number {
+        font-size: 20px;
+    }
+    
+    .admin-analytics-card .card-text {
+        font-size: 14px;
+    }
+
+    .bayi-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .stat-box {
+        min-width: auto;
+    }
+    
+    .dastas-admin-stats {
+        flex-direction: column;
+    }
+    
+    .dastas-admin-form .regular-text {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .dastas-bayi-table {
+        font-size: 13px;
+    }
+    
+    .dastas-bayi-table th,
+    .dastas-bayi-table td {
+        padding: 8px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-dashboard-analytics {
+        padding: 16px;
+        margin: 16px 0;
+    }
+    
+    .admin-analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .admin-analytics-card {
+        padding: 14px;
+        min-height: 80px;
+    }
+    
+    .admin-analytics-card .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .admin-analytics-card .card-number {
+        font-size: 18px;
+    }
+    
+    .stat-box {
+        padding: 14px 16px;
+    }
+    
+    .stat-number {
+        font-size: 24px;
+    }
+    
+    .dastas-stat-box {
+        padding: 16px;
+    }
+    
+    .dastas-stat-box h3 {
+        font-size: 20px;
+    }
+    
+    .dastas-bayi-table th,
+    .dastas-bayi-table td {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+    
+    .dastas-bayi-table .button {
+        padding: 3px 6px;
+        font-size: 11px;
+        margin-right: 4px;
+    }
+}

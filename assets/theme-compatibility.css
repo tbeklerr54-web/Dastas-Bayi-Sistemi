@@ -1,0 +1,278 @@
+/**
+ * Dastas Bayi v2 - Tema Uyumluluğu CSS
+ * Ohio ACF Tema ve diğer temalar için uyumluluk stilleri
+ */
+
+/* Ohio Tema Uyumluluğu */
+.ohio-theme .dastas-order-wizard,
+.ohio-theme .dastas-order-list {
+    font-family: inherit !important;
+    line-height: inherit !important;
+}
+
+/* ACF Field Uyumluluğu */
+.acf-field .dastas-form-group {
+    margin-bottom: 15px;
+}
+
+.acf-field .dastas-form-control {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Tema çakışması önleme */
+.dastas-container {
+    box-sizing: border-box !important;
+}
+
+.dastas-container * {
+    box-sizing: border-box !important;
+}
+
+/* Bootstrap çakışması önleme */
+.dastas-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.dastas-col {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* jQuery UI çakışması önleme */
+.dastas-dialog {
+    z-index: 9999 !important;
+}
+
+.dastas-dialog .ui-dialog-titlebar {
+    display: none !important;
+}
+
+/* Modal uyumluluğu - CRITICAL FIX */
+#order-detail-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 10000 !important;
+    display: block !important;
+}
+
+#order-detail-modal[style*="display: none"] {
+    display: none !important;
+}
+
+.dastas-modal-content {
+    position: relative !important;
+    background: white !important;
+    margin: 50px auto !important;
+    max-width: 800px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+}
+
+.dastas-modal-header {
+    padding: 20px !important;
+    border-bottom: 1px solid #eee !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.dastas-modal-title {
+    margin: 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+.dastas-modal-close {
+    background: none !important;
+    border: none !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    transition: background 0.2s !important;
+}
+
+.dastas-modal-close:hover {
+    background: #f0f0f0 !important;
+}
+
+.dastas-modal-body {
+    padding: 20px !important;
+}
+
+/* Tema override'ları */
+.ohio-theme #order-detail-modal,
+.theme-ohio #order-detail-modal {
+    font-family: inherit !important;
+    color: inherit !important;
+}
+
+/* Button styling fixes */
+.btn-detail,
+.btn-delete {
+    display: inline-block !important;
+    padding: 8px 12px !important;
+    margin: 2px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+}
+
+.btn-detail {
+    background: #007cba !important;
+    color: white !important;
+}
+
+.btn-detail:hover {
+    background: #005a87 !important;
+    color: white !important;
+}
+
+.btn-delete {
+    background: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-delete:hover {
+    background: #c82333 !important;
+    color: white !important;
+}
+
+/* Theme-specific overrides */
+.theme-twentytwentyone .dastas-order-wizard,
+.theme-twentytwentytwo .dastas-order-wizard,
+.theme-twentytwentythree .dastas-order-wizard,
+.theme-twentytwentyfour .dastas-order-wizard {
+    font-size: 16px !important;
+}
+
+/* Admin bar uyumluluğu */
+.admin-bar .dastas-modal {
+    top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .dastas-modal {
+        top: 46px !important;
+    }
+}
+
+/* Responsive uyumluluk */
+@media (max-width: 768px) {
+    .dastas-order-wizard .wizard-steps {
+        flex-direction: column !important;
+    }
+    
+    .dastas-order-wizard .step {
+        margin-bottom: 10px !important;
+    }
+}
+
+/* Print uyumluluğu */
+@media print {
+    .dastas-order-wizard .wizard-navigation,
+    .dastas-order-wizard .btn {
+        display: none !important;
+    }
+}
+
+/* High contrast mode uyumluluğu */
+@media (prefers-contrast: high) {
+    .dastas-order-wizard .step.active {
+        border: 3px solid currentColor !important;
+    }
+}
+
+/* Reduced motion uyumluluğu */
+@media (prefers-reduced-motion: reduce) {
+    .dastas-order-wizard *,
+    .dastas-order-list * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode uyumluluğu */
+@media (prefers-color-scheme: dark) {
+    .dastas-order-wizard {
+        background: #1a1a1a !important;
+        color: #ffffff !important;
+    }
+    
+    .dastas-order-wizard .form-control {
+        background: #2a2a2a !important;
+        border-color: #404040 !important;
+        color: #ffffff !important;
+    }
+    
+    .dastas-order-wizard .btn-primary {
+        background: #0073aa !important;
+        border-color: #005177 !important;
+    }
+}
+
+/* RTL dil desteği */
+.rtl .dastas-order-wizard {
+    direction: rtl !important;
+}
+
+.rtl .dastas-order-wizard .wizard-steps {
+    flex-direction: row-reverse !important;
+}
+
+.rtl .dastas-order-wizard .step::after {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* Accessibility iyileştirmeleri */
+.dastas-order-wizard .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.dastas-order-wizard button:focus,
+.dastas-order-wizard input:focus,
+.dastas-order-wizard select:focus,
+.dastas-order-wizard textarea:focus {
+    outline: 2px solid #005cee !important;
+    outline-offset: 2px !important;
+}
+
+/* Error state uyumluluğu */
+.dastas-order-wizard .error,
+.dastas-order-wizard .is-invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Success state uyumluluğu */
+.dastas-order-wizard .success,
+.dastas-order-wizard .is-valid {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}

@@ -1,0 +1,153 @@
+/* Dastas Bayi Sistemi - Basit Admin Panel Styles */
+
+/* Ana Header - Basit */
+.dastas-admin-header {
+    background: #0073aa;
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.dastas-admin-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+}
+
+/* İstatistik Kartları - Basit */
+.dastas-admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #0073aa;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Widget'lar - Basit */
+.dastas-admin-widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.widget-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.widget-header {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: -20px -20px 20px -20px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-item {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.order-number {
+    font-weight: bold;
+    color: #0073aa;
+    cursor: pointer;
+}
+
+.order-number:hover {
+    color: #005a87;
+}
+
+/* Hızlı İşlemler - Basit */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.quick-action-btn {
+    background: white;
+    border: 2px solid #0073aa;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-action-btn:hover {
+    background: #0073aa;
+    color: white;
+}
+
+.action-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.action-text {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Butonlar */
+.button {
+    border-radius: 6px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.button-primary {
+    background: #0073aa;
+    border-color: #0073aa;
+    color: white;
+}
+
+.button-secondary {
+    background: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dastas-admin-widgets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dastas-admin-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

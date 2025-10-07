@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dastas jQuery Test</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>jQuery Test</h1>
+    <button id="test-btn">Test jQuery</button>
+    <div id="result"></div>
+    
+    <h2>AJAX Test</h2>
+    <button id="ajax-test-btn">Test AJAX</button>
+    <div id="ajax-result"></div>
+    
+    <script>
+    jQuery(document).ready(function($) {
+        console.log('jQuery version:', $.fn.jquery);
+
+        $('#test-btn').on('click', function() {
+            $('#result').html('<p style="color: green;">jQuery çalışıyor!</p>');
+        });
+
+        $('#ajax-test-btn').on('click', function() {
+            // Admin sistemi testleri
+            testAdminSystem();
+            testAjaxCall();
+        });
+
+        function testAdminSystem() {
+            $('#ajax-result').append('<h3>Admin Sistemi Testi:</h3>');
+
+            if (window.DastasAdmin) {
+                $('#ajax-result').append('<p style="color: green;">✅ DastasAdmin sistemi yüklü</p>');
+                $('#ajax-result').append('<p>AJAX URL: ' + window.DastasAdmin.ajaxUrl + '</p>');
+                $('#ajax-result').append('<p>Nonce: ' + window.DastasAdmin.nonce + '</p>');
+            } else {
+                $('#ajax-result').append('<p style="color: orange;">⚠️ DastasAdmin sistemi bulunamadı (normal, sadece admin sayfasında yüklenir)</p>');
+            }
+
+            if (window.dastas_admin_ajax) {
+                $('#ajax-result').append('<p style="color: green;">✅ dastas_admin_ajax objesi mevcut</p>');
+                $('#ajax-result').append('<p>AJAX URL: ' + window.dastas_admin_ajax.ajax_url + '</p>');
+                $('#ajax-result').append('<p>Nonce: ' + window.dastas_admin_ajax.nonce + '</p>');
+            } else {
+                $('#ajax-result').append('<p style="color: red;">❌ dastas_admin_ajax objesi bulunamadı</p>');
+            }
+
+            if (window.dastas_nonce) {
+                $('#ajax-result').append('<p style="color: green;">✅ dastas_nonce değişkeni mevcut: ' + window.dastas_nonce + '</p>');
+            } else {
+                $('#ajax-result').append('<p style="color: red;">❌ dastas_nonce değişkeni bulunamadı</p>');
+            }
+        }
+
+        function testAjaxCall() {
+            $('#ajax-result').append('<h3>AJAX Çağrısı Testi:</h3>');
+
+            const testData = {
+                action: 'dastas_test_ajax',
+                nonce: window.dastas_nonce || (window.dastas_admin_ajax ? window.dastas_admin_ajax.nonce : 'test')
+            };
+
+            const ajaxUrl = window.ajaxurl || (window.dastas_admin_ajax ? window.dastas_admin_ajax.ajax_url : '/wp-admin/admin-ajax.php');
+            $('#ajax-result').append('<p>AJAX URL kullanılıyor: ' + ajaxUrl + '</p>');
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                data: testData,
+                success: function(response) {
+                    $('#ajax-result').append('<p style="color: green;">✅ AJAX başarılı: ' + response.data + '</p>');
+                },
+                error: function(xhr, status, error) {
+                    $('#ajax-result').append('<p style="color: red;">❌ AJAX hatası: ' + status + ' - ' + error + '</p>');
+                    $('#ajax-result').append('<p>Response Text: ' + xhr.responseText + '</p>');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

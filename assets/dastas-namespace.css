@@ -1,0 +1,579 @@
+/**
+ * Dastas Bayi v2 - Namespace CSS (Ohio Theme Safe)
+ * Bu dosya Ohio teması ile çakışmaları önlemek için namespace izolasyonu sağlar
+ */
+
+/* ===== NAMESPACE İZOLASYONU ===== */
+.dastas-plugin-scope {
+    /* Ohio tema değişkenlerini güvenli şekilde inherit et */
+    --dastas-primary: var(--clb-color-primary, #D90A2C);
+    --dastas-secondary: var(--clb-color-secondary, #7646DD);
+    --dastas-white: var(--clb-color-white, white);
+    --dastas-black: var(--clb-color-black, #111013);
+    --dastas-neutral: var(--clb-color-neutral, #6b6b6b);
+    --dastas-success: var(--clb-color-success, #29A366);
+    --dastas-warning: var(--clb-color-warning, #EC8013);
+    --dastas-danger: var(--clb-color-danger, #D90A2C);
+    --dastas-border: var(--clb-color-border, rgba(107, 107, 107, 0.16));
+    --dastas-fill: var(--clb-color-fill, rgba(107, 107, 107, 0.08));
+    --dastas-border-radius: var(--clb-border-radius, 0.5rem);
+    --dastas-font-family: var(--clb-font-family-primary, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    
+    /* İzolasyon sağla */
+    box-sizing: border-box !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Namespace içindeki tüm elementler için box-sizing */
+.dastas-plugin-scope *,
+.dastas-plugin-scope *::before,
+.dastas-plugin-scope *::after {
+    box-sizing: border-box !important;
+}
+
+/* ===== BUTTON STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px 24px !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--dastas-border-radius) !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    line-height: 1.4 !important;
+    font-family: var(--dastas-font-family) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.dastas-plugin-scope .btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    text-decoration: none !important;
+}
+
+.dastas-plugin-scope .btn:active {
+    transform: translateY(0) !important;
+}
+
+.dastas-plugin-scope .btn:focus {
+    outline: 2px solid var(--dastas-primary) !important;
+    outline-offset: 2px !important;
+}
+
+.dastas-plugin-scope .btn-primary {
+    background: var(--dastas-primary) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-primary) !important;
+}
+
+.dastas-plugin-scope .btn-primary:hover {
+    background: color-mix(in srgb, var(--dastas-primary) 85%, black) !important;
+    color: var(--dastas-white) !important;
+    border-color: color-mix(in srgb, var(--dastas-primary) 85%, black) !important;
+}
+
+.dastas-plugin-scope .btn-secondary {
+    background: var(--dastas-secondary) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-secondary) !important;
+}
+
+.dastas-plugin-scope .btn-secondary:hover {
+    background: color-mix(in srgb, var(--dastas-secondary) 85%, black) !important;
+    color: var(--dastas-white) !important;
+}
+
+.dastas-plugin-scope .btn-success {
+    background: var(--dastas-success) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-success) !important;
+}
+
+.dastas-plugin-scope .btn-warning {
+    background: var(--dastas-warning) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-warning) !important;
+}
+
+.dastas-plugin-scope .btn-danger {
+    background: var(--dastas-danger) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-danger) !important;
+}
+
+.dastas-plugin-scope .btn-outline {
+    background: transparent !important;
+    color: var(--dastas-primary) !important;
+    border-color: var(--dastas-border) !important;
+}
+
+.dastas-plugin-scope .btn-outline:hover {
+    background: var(--dastas-primary) !important;
+    color: var(--dastas-white) !important;
+    border-color: var(--dastas-primary) !important;
+}
+
+/* ===== FORM STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .form-group {
+    margin-bottom: 20px !important;
+}
+
+.dastas-plugin-scope .form-label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    color: var(--dastas-black) !important;
+    font-family: var(--dastas-font-family) !important;
+    font-size: 14px !important;
+}
+
+.dastas-plugin-scope .form-control {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 1px solid var(--dastas-border) !important;
+    border-radius: var(--dastas-border-radius) !important;
+    font-size: 14px !important;
+    transition: border-color 0.2s !important;
+    background: var(--dastas-white) !important;
+    color: var(--dastas-black) !important;
+    font-family: var(--dastas-font-family) !important;
+    line-height: 1.4 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.dastas-plugin-scope .form-control:focus {
+    outline: none !important;
+    border-color: var(--dastas-primary) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--dastas-primary) 20%, transparent) !important;
+}
+
+.dastas-plugin-scope .form-control:invalid {
+    border-color: var(--dastas-danger) !important;
+}
+
+.dastas-plugin-scope .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 12px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px 12px !important;
+    padding-right: 40px !important;
+}
+
+/* ===== CARD STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .card {
+    background: var(--dastas-white) !important;
+    border-radius: var(--dastas-border-radius) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    padding: 25px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid var(--dastas-border) !important;
+    position: relative !important;
+}
+
+.dastas-plugin-scope .card-header {
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid var(--dastas-border) !important;
+}
+
+.dastas-plugin-scope .card-title {
+    margin: 0 !important;
+    color: var(--dastas-black) !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .card-body {
+    padding: 0 !important;
+}
+
+/* ===== ALERT STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .alert {
+    padding: 15px 20px !important;
+    border-radius: var(--dastas-border-radius) !important;
+    margin-bottom: 20px !important;
+    border-left: 4px solid !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .alert-success {
+    background: color-mix(in srgb, var(--dastas-success) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-success) 80%, black) !important;
+    border-left-color: var(--dastas-success) !important;
+}
+
+.dastas-plugin-scope .alert-error,
+.dastas-plugin-scope .alert-danger {
+    background: color-mix(in srgb, var(--dastas-danger) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-danger) 80%, black) !important;
+    border-left-color: var(--dastas-danger) !important;
+}
+
+.dastas-plugin-scope .alert-warning {
+    background: color-mix(in srgb, var(--dastas-warning) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-warning) 80%, black) !important;
+    border-left-color: var(--dastas-warning) !important;
+}
+
+.dastas-plugin-scope .alert-info {
+    background: color-mix(in srgb, var(--dastas-secondary) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-secondary) 80%, black) !important;
+    border-left-color: var(--dastas-secondary) !important;
+}
+
+/* ===== MODAL STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .modal {
+    display: none !important;
+    position: fixed !important;
+    z-index: 999999 !important; /* Ohio temasından daha yüksek */
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    animation: fadeIn 0.3s ease !important;
+}
+
+.dastas-plugin-scope .modal-content {
+    background-color: var(--dastas-white) !important;
+    margin: 5% auto !important;
+    padding: 30px !important;
+    border-radius: var(--dastas-border-radius) !important;
+    width: 90% !important;
+    max-width: 600px !important;
+    position: relative !important;
+    animation: slideUp 0.3s ease !important;
+    z-index: 999999 !important;
+}
+
+.dastas-plugin-scope .modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid var(--dastas-border) !important;
+}
+
+.dastas-plugin-scope .modal-title {
+    margin: 0 !important;
+    color: var(--dastas-black) !important;
+    font-size: 20px !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .close {
+    color: var(--dastas-neutral) !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.dastas-plugin-scope .close:hover {
+    color: var(--dastas-black) !important;
+}
+
+/* ===== TABLE STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: var(--dastas-white) !important;
+    border-radius: var(--dastas-border-radius) !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .table th,
+.dastas-plugin-scope .table td {
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--dastas-border) !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .table th {
+    background: var(--dastas-fill) !important;
+    font-weight: 600 !important;
+    color: var(--dastas-black) !important;
+}
+
+.dastas-plugin-scope .table tr:hover {
+    background: var(--dastas-fill) !important;
+}
+
+.dastas-plugin-scope .table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* ===== LOADING STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .loading {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.dastas-plugin-scope .spinner {
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid var(--dastas-fill) !important;
+    border-top: 2px solid var(--dastas-primary) !important;
+    border-radius: 50% !important;
+    animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== BADGE STİLLERİ (İZOLE) ===== */
+.dastas-plugin-scope .badge {
+    display: inline-block !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-family: var(--dastas-font-family) !important;
+}
+
+.dastas-plugin-scope .badge-success,
+.dastas-plugin-scope .durum-teslim-edildi {
+    background: color-mix(in srgb, var(--dastas-success) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-success) 80%, black) !important;
+}
+
+.dastas-plugin-scope .badge-warning,
+.dastas-plugin-scope .durum-beklemede {
+    background: color-mix(in srgb, var(--dastas-warning) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-warning) 80%, black) !important;
+}
+
+.dastas-plugin-scope .badge-info,
+.dastas-plugin-scope .durum-hazirlaniyor {
+    background: color-mix(in srgb, var(--dastas-secondary) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-secondary) 80%, black) !important;
+}
+
+.dastas-plugin-scope .badge-primary,
+.dastas-plugin-scope .durum-onaylandi {
+    background: color-mix(in srgb, var(--dastas-primary) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-primary) 80%, black) !important;
+}
+
+.dastas-plugin-scope .badge-danger,
+.dastas-plugin-scope .durum-iptal {
+    background: color-mix(in srgb, var(--dastas-danger) 15%, white) !important;
+    color: color-mix(in srgb, var(--dastas-danger) 80%, black) !important;
+}
+
+/* ===== UTILITY CLASSES (İZOLE) ===== */
+.dastas-plugin-scope .text-center { text-align: center !important; }
+.dastas-plugin-scope .text-left { text-align: left !important; }
+.dastas-plugin-scope .text-right { text-align: right !important; }
+
+.dastas-plugin-scope .mt-10 { margin-top: 10px !important; }
+.dastas-plugin-scope .mt-20 { margin-top: 20px !important; }
+.dastas-plugin-scope .mb-10 { margin-bottom: 10px !important; }
+.dastas-plugin-scope .mb-20 { margin-bottom: 20px !important; }
+
+.dastas-plugin-scope .p-10 { padding: 10px !important; }
+.dastas-plugin-scope .p-20 { padding: 20px !important; }
+
+.dastas-plugin-scope .hidden { display: none !important; }
+.dastas-plugin-scope .visible { display: block !important; }
+
+/* ===== EVENT ISOLATION ===== */
+.dastas-plugin-scope {
+    /* Event'lerin parent'lara bubble etmesini önle */
+    isolation: isolate;
+}
+
+/* ===== RESPONSIVE DESIGN (İZOLE) ===== */
+@media (max-width: 768px) {
+    .dastas-plugin-scope .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .dastas-plugin-scope .table {
+        font-size: 12px !important;
+    }
+    
+    .dastas-plugin-scope .table th,
+    .dastas-plugin-scope .table td {
+        padding: 8px 12px !important;
+    }
+    
+    .dastas-plugin-scope .modal-content {
+        margin: 10px !important;
+        width: calc(100% - 20px) !important;
+        padding: 20px !important;
+    }
+}
+
+/* ===== Z-INDEX HİYERARŞİSİ ===== */
+.dastas-plugin-scope .dropdown {
+    z-index: 999998 !important;
+}
+
+.dastas-plugin-scope .tooltip {
+    z-index: 999997 !important;
+}
+
+.dastas-plugin-scope .popover {
+    z-index: 999996 !important;
+}
+
+/* ===== CSS GRID/FLEXBOX (İZOLE) ===== */
+.dastas-plugin-scope .grid {
+    display: grid !important;
+    gap: 20px !important;
+}
+
+.dastas-plugin-scope .grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+}
+
+.dastas-plugin-scope .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+}
+
+.dastas-plugin-scope .grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+}
+
+.dastas-plugin-scope .flex {
+    display: flex !important;
+}
+
+.dastas-plugin-scope .flex-column {
+    flex-direction: column !important;
+}
+
+.dastas-plugin-scope .justify-center {
+    justify-content: center !important;
+}
+
+.dastas-plugin-scope .items-center {
+    align-items: center !important;
+}
+
+.dastas-plugin-scope .gap-10 {
+    gap: 10px !important;
+}
+
+.dastas-plugin-scope .gap-20 {
+    gap: 20px !important;
+}
+
+/* ===== SCROLLBAR STİLİZASYONU (İZOLE) ===== */
+.dastas-plugin-scope ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.dastas-plugin-scope ::-webkit-scrollbar-track {
+    background: var(--dastas-fill) !important;
+    border-radius: 4px !important;
+}
+
+.dastas-plugin-scope ::-webkit-scrollbar-thumb {
+    background: var(--dastas-neutral) !important;
+    border-radius: 4px !important;
+}
+
+.dastas-plugin-scope ::-webkit-scrollbar-thumb:hover {
+    background: var(--dastas-black) !important;
+}
+
+/* ===== PRINT STİLLERİ (İZOLE) ===== */
+@media print {
+    .dastas-plugin-scope .btn,
+    .dastas-plugin-scope .modal,
+    .dastas-plugin-scope .alert {
+        display: none !important;
+    }
+    
+    .dastas-plugin-scope .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
+
+/* ===== ANIMASYONLAR (İZOLE) ===== */
+.dastas-plugin-scope .fade-in {
+    animation: fadeIn 0.3s ease-in !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dastas-plugin-scope .slide-up {
+    animation: slideUp 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== ACCESSIBILITY (İZOLE) ===== */
+.dastas-plugin-scope .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.dastas-plugin-scope *:focus {
+    outline: 2px solid var(--dastas-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* Focus için high contrast mode */
+@media (prefers-contrast: high) {
+    .dastas-plugin-scope *:focus {
+        outline: 3px solid currentColor !important;
+        outline-offset: 3px !important;
+    }
+}
+
+/* Reduced motion desteği */
+@media (prefers-reduced-motion: reduce) {
+    .dastas-plugin-scope *,
+    .dastas-plugin-scope *::before,
+    .dastas-plugin-scope *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

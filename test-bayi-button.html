@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayi Ekleme Butonu Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .button {
+            background: #007cba;
+            border: 1px solid #007cba;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        .button:hover {
+            background: #005a87;
+        }
+        .button-large {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+        .button-primary {
+            background: #007cba;
+        }
+        .status-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .status-success { background: #d4edda; color: #155724; }
+        .status-error { background: #f8d7da; color: #721c24; }
+        .status-info { background: #d1ecf1; color: #0c5460; }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            color: #666;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .form-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .form-table th,
+        .form-table td {
+            padding: 10px;
+            text-align: left;
+        }
+        .form-table input[type="text"],
+        .form-table input[type="email"],
+        .form-table input[type="tel"],
+        .form-table input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Bayi Ekleme Butonu Test</h1>
+            <p>Bayi ekleme butonunun çalışıp çalışmadığını test etmek için bu sayfayı kullanın.</p>
+        </div>
+
+        <div class="test-section">
+            <h3>📋 Test Sonuçları</h3>
+            <div id="test-results">
+                <div class="status-indicator status-info">Test başlatılmadı</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔘 Bayi Ekleme Butonu</h3>
+            <p>Bu buton tıkladığınızda modal açılmalı:</p>
+            <button class="button button-primary button-large" id="add-new-bayi">
+                ➕ Yeni Bayi Ekle
+            </button>
+        </div>
+
+        <div class="test-section">
+            <h3>🧪 Manuel Testler</h3>
+            <button class="button" onclick="testModalShow()">Modal Aç</button>
+            <button class="button" onclick="testModalHide()">Modal Kapat</button>
+            <button class="button" onclick="testFormReset()">Form Sıfırla</button>
+            <button class="button" onclick="testConsoleLog()">Console Log</button>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Sistem Durumu</h3>
+            <div id="system-status">
+                <div class="status-indicator status-info">Kontrol ediliyor...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bayi Modal (Admin.php'den kopyalanmış) -->
+    <div id="bayi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Yeni Bayi Ekle</h2>
+            <form id="bayi-form">
+                <table class="form-table">
+                    <tr>
+                        <th><label for="bayi_kodu">Bayi Kodu</label></th>
+                        <td><input type="text" id="bayi_kodu" name="bayi_kodu" required></td>
+                    </tr>
+                    <tr>
+                        <th><label for="bayi_adi">Bayi Adı</label></th>
+                        <td><input type="text" id="bayi_adi" name="bayi_adi" required></td>
+                    </tr>
+                    <tr>
+                        <th><label for="kullanici_adi">Kullanıcı Adı</label></th>
+                        <td><input type="text" id="kullanici_adi" name="kullanici_adi" required></td>
+                    </tr>
+                    <tr>
+                        <th><label for="telefon">Telefon</label></th>
+                        <td><input type="tel" id="telefon" name="telefon"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="eposta">E-posta</label></th>
+                        <td><input type="email" id="eposta" name="eposta"></td>
+                    </tr>
+                    <tr id="sifre-row">
+                        <th><label for="sifre">Şifre</label></th>
+                        <td>
+                            <input type="password" id="sifre" name="sifre" required>
+                            <p class="description" id="sifre-description">Yeni bayi için şifre belirleyin. En az 6 karakter olmalıdır.</p>
+                        </td>
+                    </tr>
+                </table>
+                <p class="submit">
+                    <button type="submit" class="button button-primary">Kaydet</button>
+                    <button type="button" class="button" onclick="closeModal()">İptal</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Test sonuçlarını güncelleme fonksiyonu
+        function updateTestResult(message, status = 'info') {
+            const resultsDiv = document.getElementById('test-results');
+            const statusClass = status === 'success' ? 'status-success' :
+                               status === 'error' ? 'status-error' : 'status-info';
+            resultsDiv.innerHTML = `<div class="status-indicator ${statusClass}">${message}</div>`;
+        }
+
+        // Sistem durumu kontrolü
+        function checkSystemStatus() {
+            const statusDiv = document.getElementById('system-status');
+
+            // jQuery kontrolü
+            if (typeof jQuery === 'undefined') {
+                statusDiv.innerHTML = '<div class="status-indicator status-error">jQuery yüklenmemiş!</div>';
+                return false;
+            }
+
+            statusDiv.innerHTML = '<div class="status-indicator status-success">jQuery yüklü: ' + jQuery.fn.jquery + '</div>';
+            return true;
+        }
+
+        // Modal kontrol fonksiyonları
+        function showModal() {
+            document.getElementById('bayi-modal').style.display = 'block';
+            updateTestResult('Modal başarıyla açıldı', 'success');
+        }
+
+        function closeModal() {
+            document.getElementById('bayi-modal').style.display = 'none';
+            updateTestResult('Modal kapatıldı', 'info');
+        }
+
+        function resetForm() {
+            document.getElementById('bayi-form').reset();
+            document.getElementById('modal-title').textContent = 'Yeni Bayi Ekle';
+            document.getElementById('sifre-row').style.display = 'table-row';
+            document.getElementById('sifre').required = true;
+            updateTestResult('Form sıfırlandı', 'success');
+        }
+
+        // Manuel test fonksiyonları
+        function testModalShow() {
+            try {
+                showModal();
+            } catch (error) {
+                updateTestResult('Modal açma hatası: ' + error.message, 'error');
+            }
+        }
+
+        function testModalHide() {
+            try {
+                closeModal();
+            } catch (error) {
+                updateTestResult('Modal kapatma hatası: ' + error.message, 'error');
+            }
+        }
+
+        function testFormReset() {
+            try {
+                resetForm();
+            } catch (error) {
+                updateTestResult('Form sıfırlama hatası: ' + error.message, 'error');
+            }
+        }
+
+        function testConsoleLog() {
+            console.log('Bayi ekleme butonu test sayfası aktif');
+            console.log('jQuery versiyonu:', typeof jQuery !== 'undefined' ? jQuery.fn.jquery : 'Yüklü değil');
+            updateTestResult('Console log kontrol edildi', 'info');
+        }
+
+        // Admin.js'deki showAddBayiModal fonksiyonu (benzetilmiş)
+        function showAddBayiModal() {
+            console.log('showAddBayiModal çağrıldı');
+            $('#bayi-modal').show();
+            $('#bayi-form')[0].reset();
+            $('#bayi-form').removeData('bayi-id');
+            $('#modal-title').text('Yeni Bayi Ekle');
+            $('#sifre-row').show();
+            $('#sifre').prop('required', true);
+            updateTestResult('showAddBayiModal fonksiyonu çalıştı', 'success');
+        }
+
+        // Sayfa yüklendiğinde
+        $(document).ready(function() {
+            console.log('Test sayfası hazır');
+
+            // Sistem durumu kontrolü
+            checkSystemStatus();
+
+            // Bayi ekleme butonuna event listener ekleme
+            $('#add-new-bayi').on('click', function(e) {
+                e.preventDefault();
+                console.log('Bayi ekleme butonuna tıklandı');
+                try {
+                    showAddBayiModal();
+                } catch (error) {
+                    updateTestResult('Buton tıklama hatası: ' + error.message, 'error');
+                }
+            });
+
+            // Modal dışına tıklama
+            $('#bayi-modal').on('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Form submit
+            $('#bayi-form').on('submit', function(e) {
+                e.preventDefault();
+                updateTestResult('Form gönderildi (test modunda)', 'success');
+                console.log('Form verileri:', $(this).serializeArray());
+            });
+
+            updateTestResult('Test sayfası başarıyla yüklendi', 'success');
+        });
+
+        // Global fonksiyonları tanımla
+        window.showModal = showModal;
+        window.closeModal = closeModal;
+        window.resetForm = resetForm;
+        window.showAddBayiModal = showAddBayiModal;
+    </script>
+</body>
+</html>
